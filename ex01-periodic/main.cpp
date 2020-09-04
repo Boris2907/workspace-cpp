@@ -1,28 +1,44 @@
 #include<iostream> 
 #include<cstring> 
 #include<vector>
-
+#include<string>
 using namespace std; 
 
 int period = 0;
 
 void findPeriodic(char word[], int wordLength, int prefix[]) { 
     int length = 0; 
-    int i = 1; 
+    int i = 1, c=0, d=0, f=0; 
     int zeroes = 0;
-    int c=0;
-    int d=0;
+    string newArray = "";
+
     prefix[0] = 0; 
 
-    while (int f=0 < wordLength) {
-      if (word[f]==0) {
-        zeroes++;
-        f++;
-      }
-      else {
-        break;
-      }
-    }
+    // while ( f < wordLength) {
+    //   if (word[f]==0) {
+                                         // Does not count zeroes :(
+    //     zeroes++;
+    //     break;
+    //   }
+    //   else {
+    //     f++;
+    //   }
+    // }
+// if (zeroes > 0) {
+//   for (int i = 0; i < wordLength; i++) {
+//     newArray[i] += word[i+zeroes];
+//   } 
+//   zeroes = 0;
+// }
+
+// for (int i = zeroes; i < wordLength-1; i++) {
+//      newArray += word[i+1];
+//    } 
+
+
+
+
+
 
     int truecounter=0;
 
@@ -32,7 +48,6 @@ void findPeriodic(char word[], int wordLength, int prefix[]) {
         break;
       }
       c++;
-      
     }
 
     if (truecounter>0) {
