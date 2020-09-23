@@ -33,23 +33,10 @@ int main() {
     i = 0;
 
     cin >> N;
-    if (N < 1 || N > 10000) {
-        cout << "Invalid number of students";
-        exit(0);  
-    }
     Student stu[10000];
 
     while ( i != N) {       
         cin >> age >> height;
-        if (age < 0 || age > 64) {
-            cout << "Invalid age";
-            exit(0);
-        }
-   
-        if (height < 0) {
-            cout << "Invalid height";
-            exit(0);
-        }
         stu[i].age = age;
         stu[i].height = height;
         i++;

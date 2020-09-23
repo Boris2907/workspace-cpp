@@ -9,9 +9,6 @@ Student::Student() {
     double height;
 }
 
-
-
-
 int Student::compareTo(Student ss) {
     if (ss.age == age && ss.height == height) {
         return 0;
