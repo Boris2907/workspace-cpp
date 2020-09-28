@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 namespace ds_course {
     struct Node {

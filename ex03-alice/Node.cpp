@@ -1,6 +1,7 @@
 #include "Node.h"
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 using namespace ds_course;
 using namespace std;
