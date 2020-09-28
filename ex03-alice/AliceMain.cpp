@@ -37,12 +37,12 @@ void subTrees(int child, vector <ds_course::Node> nodeList) {
 }
 
 int main() {
-    ifstream inputFile("in.txt");
+    /*ifstream inputFile("in.txt");*/
     string line;
     vector<Node> nodeList;
-    if (inputFile.is_open())
-    {
-        while (getline(inputFile, line))
+    /*if (inputFile.is_open())
+    {*/
+        while (getline(cin, line))
         {
             if (line[0] == '0')
             {
@@ -63,12 +63,12 @@ int main() {
             }
             nodeList.push_back(myNode);
         }
-    }
-    else 
+    /*}*/
+    /*else 
     {
         cout << "Unable to open the file! The input file name should be 'in.txt'! ";
         return 0;
-    }
+    }*/
 
     for (int i = 0; i < nodeList.size(); i++)
     {
@@ -84,5 +84,5 @@ int main() {
         finalNodeList[i].printPreorder();
 
     cout << '0';
-    inputFile.close();
+   /* inputFile.close();*/
 }
