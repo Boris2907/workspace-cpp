@@ -80,33 +80,45 @@ bool isPeriodic(char str[]) {
     }
 }
 
-// char zeroesDeleter(char input[]) {
+string zeroesDeleter(char input[]) {
+int i = 0;
+ std::vector<char> testVector;
 
-//  std::vector<char> testVector;
+ while ( i < strlen(input)) {
+   testVector.push_back(input[i]);
+   i++;
+   
+ }
 
-//  for (auto i : input){
-//     testVector.push_back(i);
-//   }
+//  for (int j = 0 ; j < testVector.size(); j++) {
+//   cout << testVector[i];
+//  }
 
-//   while(testVector[0] == '0'){
-//     testVector.erase(testVector.begin());
-//   }
 
-// std::reverse(testVector.begin(), testVector.end());
+  while(testVector[0] == '0'){
+    testVector.erase(testVector.begin());
+  }
 
-// while(testVector[0] == '0'){
-//     testVector.erase(testVector.begin());
-//   }
+	// for (auto x: testVector) {
+	// 	cout << x << endl;;
+	// }
+std::reverse(testVector.begin(), testVector.end());
 
-// std::reverse(testVector.begin(), testVector.end());
+while(testVector[0] == '0'){
+    testVector.erase(testVector.begin());
+  }
 
-// std::string s(testVector.begin(),testVector.end());
-// char p[s.length()+1]; 
+std::reverse(testVector.begin(), testVector.end());
+
+std::string s(testVector.begin(),testVector.end());
+return s;
+// char p[10000]; 
 //   int i; 
 //   for (i = 0; i < sizeof(p); i++) { 
 //       p[i] = s[i]; 
 //   }
-
+//   i++;
+//   p[i] = '\0';
 //   cout << p << " right here";
-//   return ??
-// }
+//   return p;
+}
