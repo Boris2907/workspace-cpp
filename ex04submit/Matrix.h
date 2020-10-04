@@ -33,8 +33,7 @@ namespace ds_course
             return input;
         }
     };
-} // namespace ds_course
-
+} 
 
 template <class T>
 ds_course::Matrix<T>::Matrix(int rr, int cc) : rows(rr), cols(cc)

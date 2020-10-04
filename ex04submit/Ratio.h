@@ -3,10 +3,7 @@
 
 #include <iostream>
 #include <algorithm>
-// using namespace ... - DON'T DO THIS
 
-// Here is stuff that is in header files
-// Declarations only
 namespace ds_course
 {
     class Ratio

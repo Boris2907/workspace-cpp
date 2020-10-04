@@ -6,7 +6,6 @@
 using namespace ds_course;
 using namespace std;
 
-
 int main() {
     string type1, type2, operation;
     int row1, col1, row2, col2;
@@ -188,10 +187,4 @@ int main() {
         cout << "out_of_range";
         return 0;
     }
-
-    
-
-    // cout << "THE ROW and COLUMN ARE: " << row1 << " " << col1 << " " << type1 << " " << operation << endl;
-    // cout << "(m1 == m2) is " << ((m1 == m2) ? "true" : "false") << endl;
-    // cout << "m1.a[1][1] = " << m1.a[1][1] << endl;
 }
