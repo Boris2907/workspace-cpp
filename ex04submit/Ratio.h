@@ -22,10 +22,15 @@ namespace ds_course
         bool operator==(const Ratio& rhs);
         Ratio operator-(const Ratio& rhs);
         Ratio operator*(const Ratio& rhs);
+        Ratio operator=(const Ratio& rhs);
 
         friend std::ostream& operator<<(std::ostream& oStream, const Ratio rat)
         {
-            oStream << "[" << rat.num << "/" << rat.den << "]";
+            if (rat.num == 0) {
+                oStream <<  rat.num ;
+            return oStream;
+            }
+            oStream <<  rat.num << "/" << rat.den;
             return oStream;
         }
 
@@ -38,35 +43,11 @@ namespace ds_course
         }
     };
 
-} // namespace ds_course
-
-// Here comes stuff that you would normally put in a CPP file
-// THe DEFINITIONS of your member functions and friends....
- int ds_course::Ratio::gcd(int a, int b)
- {
-     int n1 = a;
-     int n2 = b;
-     int hcf;
-     if ( n2 > n1) {   
-         int temp = n2;
-         n2 = n1;
-         n1 = temp;
-     }
-
-     for (int i = 1; i <=  n2; ++i) {
-         if (n1 % i == 0 && n2 % i ==0) {
-             hcf = i;
-         }
-     }
-     std::cout << "HCF = " << hcf << std::endl;
-     return hcf;
-
- }
+}
 
 ds_course::Ratio::Ratio(int nn, int dd) : num(nn), den(dd)
 {
-    /*int g = std::__gcd(nn, dd);*/
-    int g = 1;
+    int g = std::__gcd(nn, dd);
 
     num = num / g;
     den = den / g;
@@ -77,7 +58,6 @@ ds_course::Ratio::Ratio(int nn, int dd) : num(nn), den(dd)
     }
 }
 
-// result of r1 + r2 (Return type)
 ds_course::Ratio ds_course::Ratio::operator+(const Ratio& rhs)
 {
     int upside = num * rhs.den + den * rhs.num;
@@ -100,11 +80,17 @@ ds_course::Ratio ds_course::Ratio::operator*(const Ratio& rhs)
     return result;
 }
 
-
 bool ds_course::Ratio::operator==(const ds_course::Ratio& r) {
     return (num * r.den == den * r.num);
 }
 
-
+ds_course::Ratio ds_course::Ratio::operator=(const ds_course::Ratio& r) {
+    num = r.num;
+    den = r.den;
+    int upside = r.num;
+    int downside = r.den;
+    ds_course::Ratio finalRatio(upside, downside);
+    return finalRatio;
+}
 
 #endif

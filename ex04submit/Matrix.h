@@ -11,6 +11,7 @@ namespace ds_course
     class Matrix
     {
     private:
+        
         int rows; // row count
         int cols; // column count
     public:
@@ -20,6 +21,9 @@ namespace ds_course
         int getCols();
 
         bool operator==(const ds_course::Matrix<T>& rhs);
+        void operator+(const ds_course::Matrix<T>& rhs);
+        void operator-(const ds_course::Matrix<T>& rhs);
+        void operator*(const ds_course::Matrix<T>& rhs);
 
         friend std::istream& operator>>(std::istream& input, ds_course::Matrix<T>& m)
         {
@@ -50,14 +54,6 @@ int ds_course::Matrix<T>::getCols() { return cols; }
 template <class T>
 bool ds_course::Matrix<T>::operator==(const ds_course::Matrix<T>& rhs)
 {
-    if (rows != rhs.rows)
-    {
-        throw std::out_of_range("row counts differ");
-    }
-    if (cols != rhs.cols)
-    {
-        throw std::out_of_range("col counts differ");
-    }
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < cols; j++)
             if (!(a[i][j] == rhs.a[i][j]))
@@ -65,4 +61,72 @@ bool ds_course::Matrix<T>::operator==(const ds_course::Matrix<T>& rhs)
     return true;
 }
 
+template <class T>
+void ds_course::Matrix<T>::operator+(const ds_course::Matrix<T>& rhs) {
+    Matrix<T> newMatr(rows, rhs.cols);
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            newMatr.a[i][j] = a[i][j] + rhs.a[i][j];
+
+            if (i != rows && j != cols) {
+                if (j == cols-1) {
+                std::cout << newMatr.a[i][j] << std::endl;
+                }
+                else {
+                    std::cout << newMatr.a[i][j] << " ";
+                }
+            }    
+        }    
+    }                      
+}
+
+template <class T>
+void ds_course::Matrix<T>::operator-(const ds_course::Matrix<T>& rhs) {
+    Matrix<T> newMatr(rows, rhs.cols);
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            newMatr.a[i][j] = a[i][j] - rhs.a[i][j];
+
+           
+            if (i != rows && j != cols) {
+                if (j == cols-1) {
+                std::cout << newMatr.a[i][j] << std::endl;
+                }
+                else {
+                    std::cout << newMatr.a[i][j] << " ";
+                }
+            }    
+        }    
+    }     
+}
+
+template <class T>
+void ds_course::Matrix<T>::operator*(const ds_course::Matrix<T>& rhs) {
+
+    Matrix<T> newMatr(rows, rhs.cols);
+    for ( int i = 0; i < rows; i++) {
+        for (int j = 0; j< rhs.cols; j++) {
+            for (int k = 0; k < cols; k++) {
+                newMatr.a[i][j] = newMatr.a[i][j] + a[i][k]*rhs.a[k][j]; 
+            }
+        }
+    }
+
+    for (int i = 0; i < newMatr.rows; i++) {
+        for (int j = 0; j < newMatr.cols; j++) {
+
+            if (i == newMatr.rows && j == newMatr.cols) {
+                 std::cout << newMatr.a[i][j];
+            }
+            else {
+                if (j == newMatr.cols-1) {
+                std::cout << newMatr.a[i][j] << std::endl;
+                }
+                else {
+                    std::cout << newMatr.a[i][j] << " ";
+                }
+            }    
+        }
+     }
+}
 #endif /* DS_MATRIX_H */
