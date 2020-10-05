@@ -23,10 +23,10 @@ namespace ds_course
 
         friend std::ostream& operator<<(std::ostream& oStream, const Ratio rat)
         {
-            if (rat.num == 0) {
-                oStream <<  rat.num ;
-            return oStream;
-            }
+            // if (rat.num == 0) {
+            //     oStream <<  rat.num ;
+            // return oStream;
+            // }
             oStream <<  rat.num << "/" << rat.den;
             return oStream;
         }

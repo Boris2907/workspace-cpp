@@ -53,6 +53,12 @@ int ds_course::Matrix<T>::getCols() { return cols; }
 template <class T>
 bool ds_course::Matrix<T>::operator==(const ds_course::Matrix<T>& rhs)
 {
+    if (rows != rhs.rows) 
+        throw std::out_of_range("row counts differ") ;
+        
+    if (cols != rhs.cols) 
+        throw std::out_of_range("col counts differ");
+
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < cols; j++)
             if (!(a[i][j] == rhs.a[i][j]))
@@ -62,6 +68,24 @@ bool ds_course::Matrix<T>::operator==(const ds_course::Matrix<T>& rhs)
 
 template <class T>
 void ds_course::Matrix<T>::operator+(const ds_course::Matrix<T>& rhs) {
+    if (rows != rhs.rows) 
+        throw std::out_of_range("row counts differ") ;
+        
+    if (cols != rhs.cols) 
+        throw std::out_of_range("col counts differ");
+
+    std::string myType = typeid(T).name();
+    if ( myType.find("Ratio") != std::string::npos ){
+         std::cout << "MQ" << " " << rows << " " << rhs.cols << std::endl;
+    }
+    else if ( myType.find('d') != std::string::npos ) {
+        std::cout << "MR" << " " << rows << " " << rhs.cols << std::endl;    
+    }
+    else if ( myType.find('i') != std::string::npos ){
+         std::cout << "MZ" << " " << rows << " " << rhs.cols << std::endl;
+    }
+
+        
     Matrix<T> newMatr(rows, rhs.cols);
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
@@ -81,6 +105,23 @@ void ds_course::Matrix<T>::operator+(const ds_course::Matrix<T>& rhs) {
 
 template <class T>
 void ds_course::Matrix<T>::operator-(const ds_course::Matrix<T>& rhs) {
+    if (rows != rhs.rows) 
+        throw std::out_of_range("row counts differ") ;
+        
+    if (cols != rhs.cols) 
+        throw std::out_of_range("col counts differ");
+
+    std::string myType = typeid(T).name();
+    if ( myType.find("Ratio") != std::string::npos ){
+         std::cout << "MQ" << " " << rows << " " << rhs.cols << std::endl;
+    }
+    else if ( myType.find('d') != std::string::npos ) {
+        std::cout << "MR" << " " << rows << " " << rhs.cols << std::endl;    
+    }
+    else if ( myType.find('i') != std::string::npos ){
+         std::cout << "MZ" << " " << rows << " " << rhs.cols << std::endl;
+    }
+
     Matrix<T> newMatr(rows, rhs.cols);
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
@@ -101,6 +142,23 @@ void ds_course::Matrix<T>::operator-(const ds_course::Matrix<T>& rhs) {
 
 template <class T>
 void ds_course::Matrix<T>::operator*(const ds_course::Matrix<T>& rhs) {
+    if (cols != rhs.rows) 
+        throw std::out_of_range("cols count of first matrice is not equal to rows count of second matrice") ;
+        
+    
+    // std::cout << typeid(T).name() << std::endl;
+    std::string myType = typeid(T).name();
+
+    if ( myType.find("Ratio") != std::string::npos ){
+         std::cout << "MQ" << " " << rows << " " << rhs.cols << std::endl;
+    }
+    else if ( myType.find('d') != std::string::npos ) {
+        std::cout << "MR" << " " << rows << " " << rhs.cols << std::endl;    
+    }
+    else if ( myType.find('i') != std::string::npos ){
+         std::cout << "MZ" << " " << rows << " " << rhs.cols << std::endl;
+    }
+  
 
     Matrix<T> newMatr(rows, rhs.cols);
     for ( int i = 0; i < rows; i++) {
