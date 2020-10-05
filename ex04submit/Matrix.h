@@ -85,7 +85,6 @@ void ds_course::Matrix<T>::operator+(const ds_course::Matrix<T>& rhs) {
          std::cout << "MZ" << " " << rows << " " << rhs.cols << std::endl;
     }
 
-        
     Matrix<T> newMatr(rows, rhs.cols);
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {

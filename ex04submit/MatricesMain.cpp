@@ -30,7 +30,6 @@ int main() {
             if (col1 != col2) {
                 cout << "out_of_range" << endl;
             }
-            // cout << type1 << " " << row1 << " " << col1 << endl;
             m1 + m2;
         } 
         else if (operation.compare("SUB") == 0) {
@@ -40,15 +39,12 @@ int main() {
             if (col1 != col2) {
                 cout << "out_of_range" << endl;
             }
-            // cout << type1 << " " << row1 << " " << col1 << endl;
             m1 - m2;
         }
         else if (operation.compare("MUL") == 0) {
             if ( col1 != row2) {
                 cout << "out_of_range" << endl;
-            }
-
-            // cout << type1 << " " << row1 << " " << col1 << endl;    
+            }  
             m1 * m2;
         }
         else {
@@ -60,7 +56,6 @@ int main() {
         Matrix<int> m1(row1,col1);
         cin >> m1;
         cin >> type2 >> row2 >> col2;
-        
         
         Matrix<int> m2 (row2,col2);
         cin >> m2;
@@ -74,9 +69,6 @@ int main() {
             if (col1 != col2) {
                 cout << "out_of_range" << endl;
             }
-                
-    
-            // cout << type1 << " " << row1 << " " << col1 << endl;
             m1 + m2;
         } 
         else if (operation.compare("SUB") == 0) {
@@ -86,15 +78,12 @@ int main() {
             if (col1 != col2) {
                 cout << "out_of_range" << endl;
             }
-            // cout << type1 << " " << row1 << " " << col1 << endl;
             m1 - m2;
         }
         else if (operation.compare("MUL") == 0) {
             if ( col1 != row2) {
                 cout << "out_of_range" << endl;
-            }
-
-            // cout << type1 << " " << row1 << " " << col1 << endl;    
+            } 
             m1 * m2;
         }
         else {
@@ -107,7 +96,6 @@ int main() {
         cin >> m1;
         cin >> type2 >> row2 >> col2;
             
-        
         Matrix<double> m2 (row2,col2);
         cin >> m2;
 
@@ -120,9 +108,6 @@ int main() {
             if (col1 != col2) {
                 cout << "out_of_range" << endl;
             }
-                
-    
-            // cout << type1 << " " << row1 << " " << col1 << endl;
             m1 + m2;
         } 
         else if (operation.compare("SUB") == 0) {
@@ -132,15 +117,12 @@ int main() {
             if (col1 != col2) {
                 cout << "out_of_range" << endl;
             }
-            // cout << type1 << " " << row1 << " " << col1 << endl;
             m1 - m2;
         }
         else if (operation.compare("MUL") == 0) {
             if ( col1 != row2) {
                 cout << "out_of_range" << endl; 
-            }
-
-            // cout << type1 << " " << row1 << " " << col1 << endl;    
+            }  
             m1 * m2;
         }
         else {
