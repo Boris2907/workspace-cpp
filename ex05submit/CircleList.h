@@ -23,7 +23,7 @@ namespace ds_course {
 		void add(const Elem& e); // add after cursor
 		void remove(); // remove node after cursor
 		int getSize();
-		string to_str();
+		std::string to_str();
 	private:
 		int size;
 		CNode* cursor; // the cursor

@@ -18,7 +18,7 @@ public:
 
 OutOfBoundsException::OutOfBoundsException(const string& msg) {
 	printedMsg = msg;
-	cerr << "OutOfBoundsException: " << printedMsg << endl;
+	cerr << "OutOfBoundsException"<< endl;
 }
 
 OutOfBoundsException::~OutOfBoundsException() { 
@@ -30,7 +30,7 @@ string OutOfBoundsException::getMessage() const {
 }
 
 
-void ins(CircleList listt, int position, int value) {
+void ins(CircleList &listt, int position, int value) {
 	int size = listt.getSize();
 	int times = 0;
 	int times1 = 0;
@@ -42,7 +42,7 @@ void ins(CircleList listt, int position, int value) {
 			times++;
 		}
 		listt.add(value);
-		left = size - position +1;
+		left = size - position + 1;
 		while (times1 != left) {
 			listt.advance();
 			times1++;
@@ -54,19 +54,19 @@ void ins(CircleList listt, int position, int value) {
 
 }
 
-void del(CircleList listt, int position) {
+void del(CircleList &listt, int position) {
 	int size = listt.getSize();
 	int times = 0;
 	int times1 = 0;
 	int left = 0;
 
-	if (position <= size) {
+	if (position < size) {
 		while (times != position) {
 			listt.advance();
 			times++;
 		}
 		listt.remove();
-		left = size - position + 1;
+		left = size - position - 1;
 		while (times1 != left) {
 			listt.advance();
 			times1++;
@@ -100,12 +100,10 @@ int main() {
 		if (operation.compare("INS") == 0) {
 			stringstream >> position >> value;
 			ins(listt, position, value);
-			cout << "i inserted something!!";
 		}
 		else if (operation.compare("DEL") == 0) {
-			stringstream  >> value;
-			del(listt, value);
-			cout << "i deleted something!!";
+			stringstream  >> position;
+			del(listt, position);
 		}
 	}
 

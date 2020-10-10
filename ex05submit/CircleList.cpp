@@ -70,6 +70,7 @@ string CircleList::to_str()  {
 			finalList.append(" ");
 		}
 	}
+	return finalList;
 }
 
 
