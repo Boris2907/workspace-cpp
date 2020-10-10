@@ -66,7 +66,7 @@ string CircleList::to_str()  {
 	for (int i = 0; i < size; ++i) {
 		advance();
 		finalList.append(to_string(back()));
-		if (i != size) {
+		if (i != size-1) {
 			finalList.append(" ");
 		}
 	}
