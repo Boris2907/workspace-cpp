@@ -4,7 +4,7 @@ using namespace std;
 
 namespace ds_course {
     struct Node { 
-        int heightCounter = 0;
+        int height = 0;
         int value; 
         struct Node *left, *right; 
         // Node(int value);
@@ -46,8 +46,5 @@ namespace ds_course {
             else
                 return right_height + 1;
         }
-
-
-
     }; 
 }
