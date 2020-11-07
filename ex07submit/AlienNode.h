@@ -1,50 +1,43 @@
 #include <iostream>
 
-using namespace std; 
+extern int indexCounter;
 
 namespace ds_course {
     struct Node { 
-        int height = 0;
+        
         int value; 
         struct Node *left, *right; 
-        // Node(int value);
-        // void printInorder(Node* node);
-        // void insertNode(Node* node, int parent, int val, char side);
-        Node(int value) { 
+        struct Node *parent;
+        // Node(int value, Node* parent);
+        // void insertNode(Node* node, char side);
+        // int makeArray(Node* root, int* arrayWithZeroes);
+        Node(int value, Node* parent) { 
             this->value = value; 
-            left = right = NULL; 
+            this->left = this->right = NULL; 
+            this->parent = parent;
         }
 
-        void printInorder(Node* node) { 
-            if (node == NULL) 
-            return; 
-            printInorder(node->left); 
-            cout << node->value << " "; 
-            printInorder(node->right);  
+        void insertNode(Node* node, char side) {
+            if (side == 'L') {
+                this->left = node;
+            }   
+
+            else if (side == 'R') {
+                 this->right = node;
+            } 
         }
 
-        int insertNode(Node* node, int parent, int val, char side) {
-            if (node == NULL) 
-                return 0; 
-            if (node->value == parent)  {
-                if (side == 'L') {
-                    node->left = new Node(val);
-                }
-                else if (side == 'R') {
-                    node->right = new Node(val);
-                }
-                else {
-                    cout << "WTF R U DOING DUDE?" << endl;
-                    return 0;
-                }
-            }
-            int left_height = insertNode(node->left, parent, val, side); 
-            int right_height = insertNode(node->right, parent, val, side);  
-
-            if (left_height >= right_height)
-                return left_height + 1;
-            else
-                return right_height + 1;
-        }
+        // int makeArray(Node* root, int* arrayWithZeroes) {
+        //     if (root == NULL) {
+        //         return 0;
+        //     } 
+        //     else {
+        //         makeArray(root->left, arrayWithZeroes);
+        //         arrayWithZeroes[indexCounter] = root->value;
+        //         indexCounter++;
+        //         makeArray(root->right, arrayWithZeroes);
+        //         return 0;
+        //     }
+        // }
     }; 
 }
