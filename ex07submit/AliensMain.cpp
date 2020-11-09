@@ -5,6 +5,7 @@
 using namespace ds_course;
 using namespace std;
 
+//test 2 segfault, test 3 segfault, test 4 segfault, test 5 segfault, 
 int indexCounter;
 
 int makeArray(Node* root, int* arrayWithZeroes) {
@@ -20,8 +21,16 @@ int makeArray(Node* root, int* arrayWithZeroes) {
     }
 }
 
+void printInorder(Node* node) { 
+            if (node == NULL) 
+            return; 
+            printInorder(node->left); 
+            cout << node->value << " "; 
+            printInorder(node->right);  
+        }
+
 int main () {
-    struct Node* megaRoot[10000];
+    struct Node* megaRoot[11000];
     string input;
     int parent, val;
     char type;
@@ -48,7 +57,7 @@ int main () {
                 continue;
             }
             if (megaRoot[val] != 0) {
-                cout << "error3" << endl;
+                cout << "error3 " << endl;
                 continue;
             }
             if (megaRoot[parent]->left != NULL && type == 'L') {
@@ -69,17 +78,21 @@ int main () {
                 cout << "error0" << endl;
                 continue;
             }
-            Node* callNode = new Node(5, NULL);
+            Node* callNode = new Node(-1   , NULL);
+            callNode = megaRoot[val];
             for (int i = 0; i < 10001; i++) {
-                if (callNode->parent == NULL && i>0) {
+                if (callNode->parent == NULL) {
                     break;
                 }
-                callNode = megaRoot[val]->parent;
+                callNode = callNode->parent;
             }
             indexCounter = 0;
             int finalArray[10000];
+            // printInorder(callNode);
+            // cout << val << endl;
             makeArray(callNode, finalArray);
             for (int i = 0; i < indexCounter; i++) {
+                // cout << finalArray[i] << " ";
                 if (finalArray[i] == val) {
                     if (i == 0) {
                         cout << 0 << " " << finalArray[i+1] << endl;
