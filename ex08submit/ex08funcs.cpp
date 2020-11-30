@@ -402,7 +402,6 @@ bool isInTree(ds_course::Node *root, char * word) {
 }
 
 void printAll(ds_course::Node *node, char* begin, char* end, char* type) {
-
     if (node == NULL) 
         return; 
 
@@ -413,6 +412,7 @@ void printAll(ds_course::Node *node, char* begin, char* end, char* type) {
             cout << node->key[i];
         cout << "," << node->badness << ")" ;
     } 
+
     else if (strcmp(begin,"_") == 0) {
         if (comparePlusType(type, end, node->key) == 1) {
             cout << " (";
@@ -421,6 +421,7 @@ void printAll(ds_course::Node *node, char* begin, char* end, char* type) {
             cout << "," << node->badness << ")";
         }
     }
+
     else if (strcmp(end,"_") == 0) {
         if (comparePlusType(type, begin, node->key) == -1) {
             cout << " (";
@@ -429,6 +430,7 @@ void printAll(ds_course::Node *node, char* begin, char* end, char* type) {
             cout << "," << node->badness << ")";
         }
     }
+
     else {
         if (comparePlusType(type, end, node->key) == 1 && comparePlusType(type, begin, node->key) == -1) {
             cout << " (";
@@ -437,6 +439,7 @@ void printAll(ds_course::Node *node, char* begin, char* end, char* type) {
             cout << "," << node->badness << ")";
         }
     }
+    
     printAll(node->right,  begin, end, type);  
     return;
 }
